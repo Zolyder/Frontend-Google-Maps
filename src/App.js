@@ -1,12 +1,12 @@
 import React from "react";
 import Dashboard from "./customers/containers/Dashboard";
-import CustomersList from "./customers/containers/CustomersList";
+import CustomersByCity from "./customers/containers/CustomersByCity";
 import Customer from "./customers/containers/Customer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar } from "react-bootstrap";
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import Login from "./customers/containers/Login";
-import { Auth0Provider } from "@auth0/auth0-react";
+// import { Auth0Provider } from "@auth0/auth0-react";
 
 function App() {
   return (
@@ -33,7 +33,7 @@ function App() {
           <Route
             exact
             path="/list-customers/:city"
-            component={CustomersList}
+            component={CustomersByCity}
           ></Route>
           <Route exact path="/customer/:id" component={Customer}></Route>
         </Switch>

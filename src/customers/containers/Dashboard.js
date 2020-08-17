@@ -3,8 +3,6 @@ import axios from "axios";
 import CardList from "../components/CardList";
 
 const Dashboard = () => {
-  const quantityPerPage = 12;
-
   const [customersByCity, setCustomersByCity] = useState([]);
   const [currentPagePagination, setCurrentPagePagination] = useState(1);
   const [totalCustomers, setTotalCustomers] = useState();
@@ -13,7 +11,7 @@ const Dashboard = () => {
     const fetchCustomers = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/customers/total-customers?quantityPerPage=${quantityPerPage}&indexPage=${currentPagePagination}`
+          `http://localhost:8000/customers/total-customers?quantityPerPage=${12}&indexPage=${currentPagePagination}`
         );
 
         const { dataPage, totalCustomersByCity } = response.data;

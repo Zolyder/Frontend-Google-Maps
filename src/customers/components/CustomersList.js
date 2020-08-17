@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { Table, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-const CustomersList = (props) => {
-  const { city } = props.match.params;
-  const [customers, setCustomers] = useState([]);
-
-  useEffect(() => {
-    const fetchCustomers = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8000/customers/list-customers?city=${city}`
-        );
-        setCustomers(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchCustomers();
-  }, []);
+const CustomersList = ({customers}) => {
 
   return (
     <Table striped bordered hover>
